@@ -1,13 +1,21 @@
-import { View, StatusBar, SafeAreaView, TextInput, Text } from "react-native";
+import {
+  View,
+  StatusBar,
+  SafeAreaView,
+  TextInput,
+  Text,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import * as Icon from "react-native-feather";
 import { themeColors } from "../theme";
+import Categories from "../components/categories";
 
 export default function HomeScreen() {
   return (
     <SafeAreaView className="bg-white">
       <StatusBar barStyle="dark-content" />
-      {/* searchnar */}
+      {/* searchbar */}
       <View className="flex-row items-center space-x-2 px-4 py-2">
         <View className="flex-row flex-1 items-center p-3 rounded-full border border-gray-300 mr-2">
           <Icon.Search height="25" width="25" stroke="gray" />
@@ -33,6 +41,17 @@ export default function HomeScreen() {
           />
         </View>
       </View>
+
+      {/* main */}
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: 20,
+        }}
+      >
+        {/* categories */}
+        <Categories />
+      </ScrollView>
     </SafeAreaView>
   );
 }
