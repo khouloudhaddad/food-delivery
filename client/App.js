@@ -1,5 +1,4 @@
 import Navigation from "./navigation";
-import './global.css'
 import { NativeWindStyleSheet } from "nativewind";
 
 NativeWindStyleSheet.setOutput({
