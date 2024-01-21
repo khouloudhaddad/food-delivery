@@ -2,10 +2,13 @@ import { View, Text, Image, TouchableWithoutFeedback } from "react-native";
 import React from "react";
 import * as Icon from "react-native-feather";
 import { themeColors } from "../theme";
+import { useNavigation } from "@react-navigation/native";
 
 export default function RestaurantCard({ item }) {
+    const navigation = useNavigation();
   return (
-    <TouchableWithoutFeedback>
+      <TouchableWithoutFeedback
+      onPress={()=> navigation.navigate('Restaurant', {...item})}>
       <View
         style={{
           shadowColor: themeColors.bgColor(0.2),
@@ -29,7 +32,6 @@ export default function RestaurantCard({ item }) {
               </Text>
             </Text>
           </View>
-
           <View className="flex-row items-center space-x-1">
             <Icon.MapPin color="gray" width="15" height="15" />
             <Text className="text-gray-700 text-xs">
