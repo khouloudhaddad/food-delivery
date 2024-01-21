@@ -29,6 +29,11 @@ export const categories = [
     name: "Sweets",
     image: require("../assets/images/pizzaIcon.png"),
   },
+  {
+    id: 3,
+    name: "Syrian",
+    image: require("../assets/images/pizzaIcon.png"),
+  },
 ];
 
 export const featured = {

@@ -15,9 +15,11 @@ export default function Categories() {
         }}
       >
         {categories.map((category, index) => {
-            let isActive = category.id == activeCategory;
-            let btnClass = isActive ? ' bg-gray-600' : ' bg-gray-200';
-            let textClass = isActive ? ' font-semibold text-gray-800' : ' text-gray-500';
+          let isActive = category.id == activeCategory;
+          let btnClass = isActive ? " bg-gray-600" : " bg-gray-200";
+          let textClass = isActive
+            ? " font-semibold text-gray-800"
+            : " text-gray-500";
           return (
             <View key={index} className="flex justify-center items-center mr-6">
               <TouchableOpacity
@@ -29,7 +31,9 @@ export default function Categories() {
                   source={category.image}
                 />
               </TouchableOpacity>
-              <Text className={"text-sm mt-1" + textClass}>{category.name}</Text>
+              <Text className={"text-sm mt-1" + textClass}>
+                {category.name}
+              </Text>
             </View>
           );
         })}
