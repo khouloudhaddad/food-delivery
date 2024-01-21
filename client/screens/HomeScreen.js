@@ -8,8 +8,8 @@ export default function HomeScreen() {
     <SafeAreaView className="bg-white">
       <StatusBar barStyle="dark-content" />
       {/* searchnar */}
-      <View className="flex-row items-center space-x-2 px-4 py-2 ">
-        <View className="flex-row flex-1 items-center p-3 rounded-full border border-gray-300">
+      <View className="flex-row items-center space-x-2 px-4 py-2">
+        <View className="flex-row flex-1 items-center p-3 rounded-full border border-gray-300 mr-2">
           <Icon.Search height="25" width="25" stroke="gray" />
           <TextInput
             placeholder="Resturants"
