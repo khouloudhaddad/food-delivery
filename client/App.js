@@ -1,5 +1,7 @@
 import Navigation from "./navigation";
 import { NativeWindStyleSheet } from "nativewind";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -7,7 +9,8 @@ NativeWindStyleSheet.setOutput({
 
 export default function App() {
   return (
-    <Navigation />
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
   );
 }
-
