@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 export default function CartIcon() {
   const navigation = useNavigation();
   return (
-    <View className="absolute md:bottom-5 bottom-20 w-full z-50">
+    <View className="absolute bottom-5 w-full z-50">
           <TouchableOpacity
               onPress={()=> navigation.navigate('Cart')}
         style={{ backgroundColor: themeColors.bgColor(1) }}

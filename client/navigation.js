@@ -5,6 +5,7 @@ import HomeScreen from "./screens/HomeScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
 import CartScreen from "./screens/CartScreen";
 import CheckoutScreen from "./screens/CheckoutScreen";
+import DeliveryScreen from "./screens/DeliveryScreen";
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -26,6 +27,11 @@ export default function Navigation() {
           name="Checkout"
           options={{ presentation: "fullScreenModal" }}
           component={CheckoutScreen}
+        />
+        <Stack.Screen
+          name="Delivery"
+          options={{ presentation: "fullScreenModal" }}
+          component={DeliveryScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
