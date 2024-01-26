@@ -15,17 +15,15 @@ export default function CartScreen() {
   const [groupedItems, setGroupedItems] = useState({});
 
   useEffect(() => {
-    if (cartItems.length) {
-      const items = cartItems.reduce((group, item) => {
-        if (group[item.id]) {
-          group[item.id].push(item);
-        } else {
-          group[item.id] = { item };
-        }
-        return group;
-      }, {});
-      setGroupedItems(items);
-    }
+    const items = cartItems.reduce((group, item) => {
+      if (group[item.id]) {
+        group[item.id].push(item);
+      } else {
+        group[item.id] = [item];
+      }
+      return group;
+    }, {});
+    setGroupedItems(items);
   }, [cartItems]);
   return (
     <View className="bg-white flex-1">
