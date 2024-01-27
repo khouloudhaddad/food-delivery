@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { themeColors } from "../theme";
 import * as Icon from "react-native-feather";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectRestaurant } from "../slices/RestaurantSlice";
-import { selectCartItems, selectCartTotal } from "../slices/CartSlice";
+import { removeFromCart, selectCartItems, selectCartTotal } from "../slices/CartSlice";
 
 export default function CartScreen() {
   const restaurant = useSelector(selectRestaurant);
@@ -13,6 +13,8 @@ export default function CartScreen() {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
   const [groupedItems, setGroupedItems] = useState({});
+  const dispatch = useDispatch();
+  const deliveryFee = 2;
 
   useEffect(() => {
     const items = cartItems.reduce((group, item) => {
@@ -70,7 +72,7 @@ export default function CartScreen() {
             let dish = items[0];
             return (
               <View
-                className="flex-row items-center space-x-3 py-2 px-4 bg-white rounded-3xl mx-2 mb-3 shadow-md"
+                className="flex-row items-center space-x-3 py-2 px-4 bg-white rounded-3xl mx-2 mb-3 shadow-slate-50 shadow-md"
                 key={key}
               >
                 <Text className="font-bold" style={{ color: themeColors.text }}>
@@ -84,6 +86,7 @@ export default function CartScreen() {
                 <TouchableOpacity
                   className="p-1 rounded-full"
                   style={{ backgroundColor: themeColors.bgColor(1) }}
+                  onPress={() => dispatch(removeFromCart({ id: dish.id }))}
                 >
                   <Icon.Minus
                     strokeWidth={2}
@@ -103,15 +106,17 @@ export default function CartScreen() {
         >
           <View className="flex-row justify-between">
             <Text className="text-gray-700">Subtotal</Text>
-            <Text className="text-gray-700">$20</Text>
+            <Text className="text-gray-700">${cartTotal}</Text>
           </View>
           <View className="flex-row justify-between">
             <Text className="text-gray-700">Delivery Fee</Text>
-            <Text className="text-gray-700">$10</Text>
+            <Text className="text-gray-700">${deliveryFee}</Text>
           </View>
           <View className="flex-row justify-between">
             <Text className="text-gray-700 font-extrabold">Total</Text>
-            <Text className="text-gray-700 font-extrabold">$30</Text>
+            <Text className="text-gray-700 font-extrabold">
+              ${deliveryFee + cartTotal}
+            </Text>
           </View>
           <View>
             <TouchableOpacity
