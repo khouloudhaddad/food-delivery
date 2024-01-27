@@ -29,6 +29,7 @@ export default function Categories() {
                 <Image
                   style={{ width: 45, height: 45 }}
                   source={category.image}
+                  className="rounded-full"
                 />
               </TouchableOpacity>
               <Text className={"text-sm mt-1" + textClass}>
